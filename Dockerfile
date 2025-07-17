@@ -25,10 +25,11 @@ RUN echo "#!/bin/sh" > /config/start.sh && \
 
 # Prepare the virtual machine
 RUN \
-    apk update && apk --no-cache add openjdk18-jre && \
-    wget -O /config/webgoat.jar https://github.com/WebGoat/WebGoat/releases/download/v2023.8/webgoat-2023.8.jar && \
-    wget https://github.com/zaproxy/zaproxy/releases/download/v2.14.0/ZAP_2_14_0_unix.sh && \
-    sudo sh ZAP_2_14_0_unix.sh -q && \
-    rm ZAP_2_14_0_unix.sh
+	echo "https://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories && \
+    apk update && apk --no-cache add openjdk23-jdk firefox && \
+    wget -O /config/webgoat.jar https://github.com/WebGoat/WebGoat/releases/download/v2025.3/webgoat-2025.3.jar && \
+    wget https://github.com/zaproxy/zaproxy/releases/download/v2.16.1/ZAP_2_16_1_unix.sh && \
+    sudo sh ZAP_2_16_1_unix.sh -q && \
+    rm ZAP_2_16_1_unix.sh
 
 WORKDIR /config/Desktop
