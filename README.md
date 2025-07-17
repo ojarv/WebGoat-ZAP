@@ -11,7 +11,7 @@ Dockerized WebGoat and ZAP in your browser.
 ### Docker cli
 
 ```bash
-docker run --name webgoatzap -p 3000:3000 -e TZ=Europe/Helsinki -d ojarv/webgoat-zap:v1
+docker run --name webgoatzap -p 3000:3000 -e TZ=Europe/Helsinki -d ojarv/webgoat-zap:v2
 ```
 
 ### Docker Compose
@@ -24,7 +24,7 @@ services:
             - TZ=Europe/Helsinki
         ports:
             - 3000:3000
-        image: ojarv/webgoat-zap:v1
+        image: ojarv/webgoat-zap:v2
 ```
 
 ### Inside the container
